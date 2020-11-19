@@ -1,0 +1,9 @@
+generate network
+..\bin\netgenerate.exe -r --rand.iterations 70 -o sin.net.xml --sidewalks.guess true --turn-lanes 1 --tls.guess true --crossings.guess true 
+
+generate trips
+python ..\tools\randomTrips.py -n sin.net.xml --fringe-factor 8 -r pre.rou.xml -e 3600 --period 3
+
+remove loops
+..\bin\duarouter.exe -n sin.net.xml --route-files pre.rou.xml --repair -b 0 -e 3600 --remove-loops true -o generated.rou.xml
+

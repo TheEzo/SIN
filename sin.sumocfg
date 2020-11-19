@@ -1,0 +1,19 @@
+<configuration>
+	<input>
+		<net-file value="sin.net.xml"/>
+		<route-files value="generated.rou.xml,drive_through.rou.xml"/>
+		<additional-files value="sin.net.add.xml"/>
+<!--		 <route-files value="test.xml"/> -->
+<!--		<taz-files value=""/>-->
+<!--		<od-matrix-files value=""/>-->
+	</input>
+
+	<!-- <output>
+		<netstate-dump value="dump.xml"/>
+	</output> -->
+
+	<time>
+		<begin value="0"/>
+		<end value="3600"/>
+	</time>
+</configuration>
