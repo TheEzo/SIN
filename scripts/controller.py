@@ -1,5 +1,6 @@
 import traci
 from typing import Optional
+from copy import deepcopy
 
 
 YELLOW_LEN = 3
@@ -10,6 +11,11 @@ class Controller:
         self.step = 0
         self.q = {id_: {} for id_ in range(10000)}
         self.tls = set(all_tl)
+
+        self.f = open('debug.log', 'w')
+
+    def __del__(self):
+        self.f.close()
 
     def inc_step(self):
         self.step += 1
@@ -41,21 +47,30 @@ class Controller:
             processed.append(tl)
             if val.get('yellow'):
                 current_phase = traci.trafficlight.getPhase(tl)
-                traci.trafficlight.setPhase(tl, current_phase + 1)
+                if current_phase == 0 or not current_phase % 2:
+                    traci.trafficlight.setPhase(tl, current_phase + 1)
+                elif current_phase % 2:
+                    ...  # no action
+                else:
+                    raise ValueError('This should not happen')
             elif val.get('placeholder'):
                 if traci.trafficlight.getPhase(tl) == 0:
                     processed.remove(tl)
             else:
                 traci.trafficlight.setPhase(val['tl'], val['phase'])
             # TODO pokud zluta, tak naplanovat fazi 0?
-        del self.q[self.step]
 
+        self.step
         # Keep phase 1 running if nothing queued
         for tl in self.tls.difference(processed):
-            if traci.trafficlight.getPhase(tl) == 0:
+            phase = traci.trafficlight.getPhase(tl)
+            if phase == 0:
                 traci.trafficlight.setPhase(tl, 0)
-        # TODO traci.trafficlight.getNextSwitch(tl) == 1? check and plan 0
+            elif phase % 2 and tl not in self.q[traci.trafficlight.getNextSwitch(tl)]:  # end of yellow in progress
+                traci.trafficlight.setPhase(tl, 0)
 
+        print(self.q[self.step], file=self.f)
+        del self.q[self.step]
         self.inc_step()
 
     def _get_queued(self, tl):
@@ -83,16 +98,17 @@ class Controller:
         Return time with +3 for yellow phase or None if current params already planned
         """
 
-        def plan_with_another_phases(tl, phase, tl_queue, start, placeholder=False):
-            phase_len = traci.trafficlight.getAllProgramLogics(tl)[0].phases[phase].duration + YELLOW_LEN
-
+        def plan_with_another_phases(start, placeholder=False) -> Optional[int]:
             # plan phase after last planned phase
             last_time_to_check = None
             for time, val in tl_queue.items():
                 if 'tl' in val and 'phase' in val and 'placeholder' not in val:
                     last_time_to_check = time
-
+            if last_time_to_check and last_time_to_check < self.step:
+                last_time_to_check = None
             if last_time_to_check is None:
+                if (start - YELLOW_LEN) < self.step:
+                    return int(traci.trafficlight.getNextSwitch(tl)) + YELLOW_LEN
                 return start
             else:
                 check_val = tl_queue[last_time_to_check]
@@ -102,17 +118,17 @@ class Controller:
                 if traci.trafficlight.getPhase(tl) == 0:
                     if not placeholder:
                         return last_time_to_check + check_phase_len
-                    return 0
+                    return self.step + check_phase_len
                 else:
+                    check_time = last_time_to_check + check_phase_len
                     if placeholder:
-                        check_time = last_time_to_check + check_phase_len
                         # plan after already planned phase
                         if check_time >= start:
                             return check_time
                         # else phase 0 must be executed first
                         # todo test faze 0 se spusti
                         return check_time + self._get_tl_phase_duration(tl, 0)
-                    return 0  # TODO naplanovat za posledni fazi (cas faze + zluta)
+                    return check_time
 
         # params already planned
         if next((v for v in tl_queue.values()
@@ -123,10 +139,10 @@ class Controller:
         placeholder = next(({k: v} for k, v in tl_queue.items()
                             if v.get('tl', -1) == tl and v.get('phase', -1) == phase and 'placeholder' in v), False)
         if placeholder:
-            return plan_with_another_phases(tl, phase, tl_queue, next(k for k in placeholder), True)
+            return plan_with_another_phases(next(k for k in placeholder), True)
 
         # future plan available - try to plan right after current phase
-        return plan_with_another_phases(tl, phase, tl_queue, int(traci.trafficlight.getNextSwitch(tl)) + YELLOW_LEN)
+        return plan_with_another_phases(int(traci.trafficlight.getNextSwitch(tl)) + YELLOW_LEN)
 
     @staticmethod
     def _get_tl_phase_duration(tl, phase) -> int:

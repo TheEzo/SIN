@@ -3,6 +3,8 @@ from sumolib import checkBinary
 
 from scripts.controller import Controller
 
+STEPS = 3600
+
 
 def run():
     """execute the TraCI control loop"""
@@ -10,7 +12,7 @@ def run():
 
     c = Controller(['2'])
 
-    while traci.simulation.getMinExpectedNumber() > 0:
+    while step < STEPS:
         traci.simulationStep()
         c.run()
 
@@ -21,7 +23,6 @@ def run():
                 if traci.inductionloop.getLastStepVehicleNumber(f'd{jun}_{det}') > 0:
                     # TODO planuju jen kdyz neni zelena a next phase je za vic nez N sekund
                     c.queue(jun, phase)
-
 
         step += 1
     traci.close()
