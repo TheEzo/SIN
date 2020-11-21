@@ -60,14 +60,15 @@ class Controller:
                 traci.trafficlight.setPhase(val['tl'], val['phase'])
             # TODO pokud zluta, tak naplanovat fazi 0?
 
-        self.step
         # Keep phase 1 running if nothing queued
         for tl in self.tls.difference(processed):
             phase = traci.trafficlight.getPhase(tl)
             if phase == 0:
                 traci.trafficlight.setPhase(tl, 0)
-            elif phase % 2 and tl not in self.q[traci.trafficlight.getNextSwitch(tl)]:  # end of yellow in progress
+            # end of yellow in progress
+            elif phase % 2 and not phase == 1 and tl not in self.q[traci.trafficlight.getNextSwitch(tl)]:
                 traci.trafficlight.setPhase(tl, 0)
+                self.q[self.step][int(tl)] = 0
 
         print(self.q[self.step], file=self.f)
         del self.q[self.step]
@@ -88,7 +89,6 @@ class Controller:
             i += 1
             if i > 150:
                 break
-
         return ret
 
     def _get_available_time(self, tl, phase, tl_queue) -> Optional[int]:
@@ -125,8 +125,6 @@ class Controller:
                         # plan after already planned phase
                         if check_time >= start:
                             return check_time
-                        # else phase 0 must be executed first
-                        # todo test faze 0 se spusti
                         return check_time + self._get_tl_phase_duration(tl, 0)
                     return check_time
 

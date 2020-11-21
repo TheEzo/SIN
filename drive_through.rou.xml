@@ -42,6 +42,6 @@
 -->
 
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
-    <flow id="flow_down" begin="0.00" from="-533" to="642" via="-64" end="3600.00" probability="0.15"/>
-    <flow id="flow_up" begin="0.00" from="-642" to="533" via="64" end="3600.00" probability="0.15"/>
+    <flow id="flow_down" begin="0.00" from="-533" to="642" via="-64" end="3600.00" probability="0.20"/>
+    <flow id="flow_up" begin="0.00" from="-642" to="533" via="64" end="3600.00" probability="0.20"/>
 </routes>
