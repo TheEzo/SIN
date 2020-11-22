@@ -47,7 +47,7 @@ class Controller:
             processed.append(tl)
             if val.get('yellow'):
                 current_phase = traci.trafficlight.getPhase(tl)
-                if current_phase == 0 or not current_phase % 2:
+                if not current_phase % 2:
                     traci.trafficlight.setPhase(tl, current_phase + 1)
                 elif current_phase % 2:
                     ...  # no action
@@ -118,7 +118,9 @@ class Controller:
                 if traci.trafficlight.getPhase(tl) == 0:
                     if not placeholder:
                         return last_time_to_check + check_phase_len
-                    return self.step + check_phase_len
+                    if start > (last_time_to_check + check_phase_len):
+                        return start
+                    return last_time_to_check + check_phase_len
                 else:
                     check_time = last_time_to_check + check_phase_len
                     if placeholder:

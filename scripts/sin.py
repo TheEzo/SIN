@@ -18,8 +18,8 @@ def run():
 
     step = 0
 
-    jun_3_route = ['14', '2',  '63']
-    jun_4_route = ['12', '591']
+    jun_3_route = ['14', '2', '63']
+    jun_4_route = ['12', '591', '18', '343', '364']
     all_junctions = jun_3_route + jun_4_route
     c = Controller(all_junctions)
 
