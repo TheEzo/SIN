@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<System Name="semaphor" Comment="">
+	<VersionInfo Version="1.0" Author="TeZzo" Date="2020-11-22">
+	</VersionInfo>
+	<Application Name="semaphorApp" Comment="">
+		<SubAppNetwork>
+			<FB Name="Phase_LEN" Type="E_CTU" Comment="" x="2266.666666666667" y="-266.6666666666667">
+			</FB>
+			<FB Name="F_GT" Type="F_GT" Comment="" x="4000.0" y="-266.6666666666667">
+				<Parameter Name="IN2" Value="UINT#15"/>
+			</FB>
+			<FB Name="E_PERMIT_1" Type="E_PERMIT" Comment="" x="5066.666666666667" y="1200.0">
+			</FB>
+			<FB Name="F_EQ" Type="F_EQ" Comment="" x="4000.0" y="800.0">
+				<Parameter Name="IN2" Value="UINT#18"/>
+			</FB>
+			<FB Name="Yellow_LEN" Type="F_MUX_2" Comment="" x="6666.666666666667" y="-266.6666666666667">
+				<Parameter Name="IN1" Value="UINT#0"/>
+				<Parameter Name="IN2" Value="UINT#1"/>
+			</FB>
+			<FB Name="F_BOOL_TO_INT" Type="F_BOOL_TO_INT" Comment="" x="5066.666666666667" y="-266.6666666666667">
+			</FB>
+			<FB Name="F_EQ_1" Type="F_EQ" Comment="" x="7866.666666666667" y="1600.0">
+				<Parameter Name="IN2" Value="UINT#4"/>
+			</FB>
+			<FB Name="E_PERMIT" Type="E_PERMIT" Comment="" x="8933.333333333334" y="1600.0">
+			</FB>
+			<FB Name="Result" Type="F_ADD" Comment="" x="10933.333333333334" y="0.0">
+			</FB>
+			<FB Name="F_BOOL_TO_INT_1" Type="F_BOOL_TO_INT" Comment="" x="9200.0" y="-266.6666666666667">
+			</FB>
+			<FB Name="F_MUL" Type="F_MUL" Comment="" x="8000.0" y="666.6666666666667">
+				<Parameter Name="IN2" Value="UINT#2"/>
+			</FB>
+			<FB Name="F_UINT_TO_INT" Type="F_UINT_TO_INT" Comment="" x="9200.0" y="666.6666666666667">
+			</FB>
+			<FB Name="F_INT_TO_STRING" Type="F_INT_TO_STRING" Comment="" x="12140.0" y="53.333333333333336">
+			</FB>
+			<FB Name="PUBLISH_2" Type="PUBLISH_1" Comment="" x="13600.0" y="-1466.6666666666667">
+				<Parameter Name="QI" Value="1"/>
+				<Parameter Name="ID" Value="raw[].mqtt[tcp://localhost:1883, forte, output]"/>
+			</FB>
+			<FB Name="SUBSCRIBE_2" Type="SUBSCRIBE_1" Comment="" x="-3733.3333333333335" y="-1466.6666666666667">
+				<Parameter Name="QI" Value="1"/>
+				<Parameter Name="ID" Value="raw[].mqtt[tcp://localhost:1883, forte, input]"/>
+			</FB>
+			<FB Name="F_STRING_TO_BYTE_1" Type="F_STRING_TO_BYTE" Comment="" x="-2000.0" y="-933.3333333333334">
+			</FB>
+			<FB Name="PHASE1Q" Type="E_CTU" Comment="" x="1733.3333333333335" y="5733.333333333334">
+			</FB>
+			<FB Name="F_AND_1" Type="F_AND" Comment="" x="-1066.6666666666667" y="2266.666666666667">
+				<Parameter Name="IN2" Value="BYTE#1"/>
+			</FB>
+			<FB Name="F_GT_1" Type="F_GT" Comment="" x="1200.0" y="2266.666666666667">
+				<Parameter Name="IN2" Value="UINT#0"/>
+			</FB>
+			<FB Name="E_CTU_1" Type="E_CTU" Comment="" x="-133.33333333333334" y="3066.666666666667">
+			</FB>
+			<FB Name="F_LE" Type="F_LE" Comment="" x="1200.0" y="3066.666666666667">
+				<Parameter Name="IN2" Value="UINT#25"/>
+			</FB>
+			<FB Name="E_PERMIT_2" Type="E_PERMIT" Comment="" x="6666.666666666667" y="2666.666666666667">
+			</FB>
+			<FB Name="F_EQ_5" Type="F_EQ" Comment="" x="1200.0" y="4266.666666666667">
+				<Parameter Name="IN1" Value="UINT#0"/>
+			</FB>
+			<FB Name="F_AND" Type="F_AND" Comment="" x="2266.666666666667" y="3200.0">
+			</FB>
+			<FB Name="F_AND_2" Type="F_AND" Comment="" x="5466.666666666667" y="2666.666666666667">
+			</FB>
+			<FB Name="F_BYTE_TO_INT_1" Type="F_BYTE_TO_INT" Comment="" x="3066.666666666667" y="3200.0">
+			</FB>
+			<FB Name="F_INT_TO_BYTE" Type="F_INT_TO_BYTE" Comment="" x="4266.666666666667" y="3200.0">
+			</FB>
+			<FB Name="F_BYTE_TO_UINT" Type="F_BYTE_TO_UINT" Comment="" x="-133.33333333333334" y="2266.666666666667">
+			</FB>
+			<FB Name="CUR_G_INDEX" Type="E_CTUD" Comment="" x="6400.0" y="933.3333333333334">
+			</FB>
+			<FB Name="E_PERMIT_3" Type="E_PERMIT" Comment="" x="266.6666666666667" y="5733.333333333334">
+			</FB>
+			<FB Name="F_AND_3" Type="F_AND" Comment="" x="-800.0" y="5733.333333333334">
+				<Parameter Name="IN2" Value="BYTE#2"/>
+			</FB>
+			<FB Name="F_AND_4" Type="F_AND" Comment="" x="-800.0" y="6933.333333333334">
+				<Parameter Name="IN2" Value="BYTE#4"/>
+			</FB>
+			<FB Name="PHASE2Q" Type="E_CTU" Comment="" x="1733.3333333333335" y="6933.333333333334">
+			</FB>
+			<FB Name="E_PERMIT_4" Type="E_PERMIT" Comment="" x="266.6666666666667" y="6933.333333333334">
+			</FB>
+			<FB Name="F_AND_5" Type="F_AND" Comment="" x="-800.0" y="8000.0">
+				<Parameter Name="IN2" Value="BYTE#8"/>
+			</FB>
+			<FB Name="PHASE3Q" Type="E_CTU" Comment="" x="1733.3333333333335" y="8000.0">
+			</FB>
+			<FB Name="E_PERMIT_5" Type="E_PERMIT" Comment="" x="266.6666666666667" y="8000.0">
+			</FB>
+			<FB Name="E_SPLIT_1" Type="E_SPLIT" Comment="" x="-2400.0" y="4533.333333333334">
+			</FB>
+			<FB Name="E_SPLIT_2" Type="E_SPLIT" Comment="" x="1733.3333333333335" y="5066.666666666667">
+			</FB>
+			<FB Name="F_EQ_2" Type="F_EQ" Comment="" x="2800.0" y="5866.666666666667">
+				<Parameter Name="IN2" Value="UINT#0"/>
+			</FB>
+			<FB Name="F_EQ_3" Type="F_EQ" Comment="" x="2800.0" y="7066.666666666667">
+				<Parameter Name="IN2" Value="UINT#0"/>
+			</FB>
+			<FB Name="F_EQ_4" Type="F_EQ" Comment="" x="2800.0" y="8133.333333333334">
+				<Parameter Name="IN2" Value="UINT#0"/>
+			</FB>
+			<FB Name="F_BOOL_TO_INT_2" Type="F_BOOL_TO_INT" Comment="" x="3466.666666666667" y="5866.666666666667">
+			</FB>
+			<FB Name="F_BOOL_TO_INT_3" Type="F_BOOL_TO_INT" Comment="" x="3466.666666666667" y="7066.666666666667">
+			</FB>
+			<FB Name="F_MUX_2" Type="F_MUX_2" Comment="" x="5600.0" y="5733.333333333334">
+				<Parameter Name="IN1" Value="UINT#0"/>
+			</FB>
+			<FB Name="F_ADD" Type="F_ADD" Comment="" x="7866.666666666667" y="5200.0">
+			</FB>
+			<FB Name="F_UINT_TO_INT_1" Type="F_UINT_TO_INT" Comment="" x="6666.666666666667" y="5866.666666666667">
+			</FB>
+			<FB Name="F_MUX_3" Type="F_MUX_2" Comment="" x="5466.666666666667" y="7066.666666666667">
+				<Parameter Name="IN1" Value="UINT#0"/>
+			</FB>
+			<FB Name="F_UINT_TO_INT_2" Type="F_UINT_TO_INT" Comment="" x="6666.666666666667" y="7066.666666666667">
+			</FB>
+			<FB Name="F_ADD_1" Type="F_ADD" Comment="" x="7866.666666666667" y="6533.333333333334">
+			</FB>
+			<FB Name="F_INT_TO_UINT" Type="F_INT_TO_UINT" Comment="" x="8533.333333333334" y="6533.333333333334">
+			</FB>
+			<FB Name="F_BOOL_TO_UINT" Type="F_BOOL_TO_UINT" Comment="" x="3733.3333333333335" y="8133.333333333334">
+			</FB>
+			<FB Name="F_EQ_6" Type="F_EQ" Comment="" x="11466.666666666668" y="2400.0">
+				<Parameter Name="IN2" Value="UINT#0"/>
+			</FB>
+			<FB Name="F_EQ_7" Type="F_EQ" Comment="" x="11466.666666666668" y="3200.0">
+				<Parameter Name="IN2" Value="UINT#1"/>
+			</FB>
+			<FB Name="F_EQ_8" Type="F_EQ" Comment="" x="11466.666666666668" y="4133.333333333334">
+				<Parameter Name="IN2" Value="UINT#2"/>
+			</FB>
+			<FB Name="E_SPLIT_3" Type="E_SPLIT" Comment="" x="10266.666666666668" y="2266.666666666667">
+			</FB>
+			<FB Name="F_MUX_4" Type="F_MUX_2" Comment="" x="13333.333333333334" y="2400.0">
+				<Parameter Name="IN1" Value="UINT#0"/>
+			</FB>
+			<FB Name="F_BOOL_TO_INT_4" Type="F_BOOL_TO_INT" Comment="" x="12133.333333333334" y="2400.0">
+			</FB>
+			<FB Name="F_BOOL_TO_INT_5" Type="F_BOOL_TO_INT" Comment="" x="12133.333333333334" y="3200.0">
+			</FB>
+			<FB Name="F_BOOL_TO_INT_6" Type="F_BOOL_TO_INT" Comment="" x="12133.333333333334" y="4133.333333333334">
+			</FB>
+			<FB Name="F_MUX_5" Type="F_MUX_2" Comment="" x="13333.333333333334" y="3200.0">
+				<Parameter Name="IN1" Value="UINT#0"/>
+			</FB>
+			<FB Name="F_MUX_6" Type="F_MUX_2" Comment="" x="13333.333333333334" y="4133.333333333334">
+				<Parameter Name="IN1" Value="UINT#0"/>
+			</FB>
+			<FB Name="F_INT_TO_UINT_1" Type="F_INT_TO_UINT" Comment="" x="8533.333333333334" y="5200.0">
+			</FB>
+			<FB Name="F_UINT_TO_INT_3" Type="F_UINT_TO_INT" Comment="" x="14266.666666666668" y="2400.0">
+			</FB>
+			<FB Name="F_UINT_TO_INT_4" Type="F_UINT_TO_INT" Comment="" x="14266.666666666668" y="3200.0">
+			</FB>
+			<FB Name="F_UINT_TO_INT_5" Type="F_UINT_TO_INT" Comment="" x="14266.666666666668" y="4133.333333333334">
+			</FB>
+			<FB Name="F_ADD_2" Type="F_ADD" Comment="" x="16140.0" y="3333.3333333333335">
+			</FB>
+			<FB Name="F_INT_TO_UINT_2" Type="F_INT_TO_UINT" Comment="" x="17333.333333333336" y="3333.3333333333335">
+			</FB>
+			<FB Name="F_UINT_TO_INT_6" Type="F_UINT_TO_INT" Comment="" x="16140.0" y="4400.0">
+			</FB>
+			<FB Name="F_ADD_4" Type="F_ADD" Comment="" x="17466.666666666668" y="4400.0">
+			</FB>
+			<FB Name="F_ADD_3" Type="F_ADD" Comment="" x="13600.0" y="5466.666666666667">
+			</FB>
+			<FB Name="F_INT_TO_UINT_3" Type="F_INT_TO_UINT" Comment="" x="12266.666666666668" y="5466.666666666667">
+			</FB>
+			<FB Name="F_INT_TO_UINT_4" Type="F_INT_TO_UINT" Comment="" x="14400.0" y="5466.666666666667">
+			</FB>
+			<FB Name="F_ADD_5" Type="F_ADD" Comment="" x="15733.333333333334" y="5466.666666666667">
+				<Parameter Name="IN2" Value="UINT#1"/>
+			</FB>
+			<FB Name="F_EQ_9" Type="F_EQ" Comment="" x="14133.333333333334" y="0.0">
+			</FB>
+			<FB Name="F_UINT_TO_INT_7" Type="F_UINT_TO_INT" Comment="" x="11466.666666666668" y="6666.666666666667">
+			</FB>
+			<FB Name="F_EQ_10" Type="F_EQ" Comment="" x="12933.333333333334" y="6666.666666666667">
+				<Parameter Name="IN2" Value="INT#1"/>
+			</FB>
+			<FB Name="R_1Q" Type="E_PERMIT" Comment="" x="13866.666666666668" y="6666.666666666667">
+			</FB>
+			<FB Name="R_3Q" Type="E_PERMIT" Comment="" x="13866.666666666668" y="8266.666666666668">
+			</FB>
+			<FB Name="F_EQ_12" Type="F_EQ" Comment="" x="12933.333333333334" y="8266.666666666668">
+				<Parameter Name="IN2" Value="INT#3"/>
+			</FB>
+			<FB Name="R_2Q" Type="E_PERMIT" Comment="" x="13866.666666666668" y="7466.666666666667">
+			</FB>
+			<FB Name="F_EQ_13" Type="F_EQ" Comment="" x="12933.333333333334" y="7466.666666666667">
+				<Parameter Name="IN2" Value="INT#2"/>
+			</FB>
+			<EventConnections>
+				<Connection Source="Phase_LEN.CUO" Destination="F_GT.REQ" Comment=""/>
+				<Connection Source="Phase_LEN.CUO" Destination="F_EQ.REQ" Comment="" dx1="613.3333333333334"/>
+				<Connection Source="F_GT.CNF" Destination="F_BOOL_TO_INT.REQ" Comment=""/>
+				<Connection Source="F_BOOL_TO_INT.CNF" Destination="Yellow_LEN.REQ" Comment=""/>
+				<Connection Source="F_EQ.CNF" Destination="E_PERMIT_1.EI" Comment="" dx1="300.0"/>
+				<Connection Source="E_PERMIT_1.EO" Destination="Phase_LEN.R" Comment="" dx1="80.0" dx2="80.0" dy="-680.0"/>
+				<Connection Source="F_EQ_1.CNF" Destination="E_PERMIT.EI" Comment=""/>
+				<Connection Source="Yellow_LEN.CNF" Destination="F_BOOL_TO_INT_1.REQ" Comment=""/>
+				<Connection Source="F_MUL.CNF" Destination="F_UINT_TO_INT.REQ" Comment=""/>
+				<Connection Source="F_BOOL_TO_INT_1.CNF" Destination="Result.REQ" Comment="" dx1="426.6666666666667"/>
+				<Connection Source="F_EQ.CNF" Destination="F_MUL.REQ" Comment="" dx1="1766.6666666666667"/>
+				<Connection Source="Result.CNF" Destination="F_INT_TO_STRING.REQ" Comment="" dx1="346.6666666666667"/>
+				<Connection Source="F_STRING_TO_BYTE_1.CNF" Destination="Phase_LEN.CU" Comment="" dx1="420.0"/>
+				<Connection Source="SUBSCRIBE_2.INITO" Destination="PUBLISH_2.INIT" Comment="" dx1="8273.333333333334"/>
+				<Connection Source="E_CTU_1.CUO" Destination="F_LE.REQ" Comment=""/>
+				<Connection Source="E_PERMIT_2.EO" Destination="Phase_LEN.R" Comment="" dx1="80.0" dx2="80.0" dy="-366.6666666666667"/>
+				<Connection Source="E_PERMIT.EO" Destination="E_CTU_1.R" Comment="" dx1="80.0" dx2="80.0" dy="2226.666666666667"/>
+				<Connection Source="E_CTU_1.CUO" Destination="F_EQ_5.REQ" Comment="" dx1="413.33333333333337"/>
+				<Connection Source="F_AND.CNF" Destination="F_BYTE_TO_INT_1.REQ" Comment="" dx1="186.66666666666669"/>
+				<Connection Source="F_BYTE_TO_INT_1.CNF" Destination="F_INT_TO_BYTE.REQ" Comment="" dx1="160.0"/>
+				<Connection Source="F_GT_1.CNF" Destination="F_AND.REQ" Comment="" dx1="300.0"/>
+				<Connection Source="F_INT_TO_BYTE.CNF" Destination="F_AND_2.REQ" Comment="" dx1="93.33333333333334"/>
+				<Connection Source="SUBSCRIBE_2.IND" Destination="F_STRING_TO_BYTE_1.REQ" Comment="" dx1="340.0"/>
+				<Connection Source="F_INT_TO_STRING.CNF" Destination="PUBLISH_2.REQ" Comment="" dx1="240.0"/>
+				<Connection Source="F_AND_1.CNF" Destination="F_BYTE_TO_UINT.REQ" Comment=""/>
+				<Connection Source="F_BYTE_TO_UINT.CNF" Destination="F_GT_1.REQ" Comment=""/>
+				<Connection Source="E_PERMIT_1.EO" Destination="CUR_G_INDEX.CU" Comment="" dx1="80.0" dx2="80.0" dy="-266.6666666666667"/>
+				<Connection Source="E_PERMIT.EO" Destination="CUR_G_INDEX.R" Comment="" dx1="80.0" dx2="140.0" dy="633.3333333333334"/>
+				<Connection Source="F_AND_2.CNF" Destination="E_PERMIT_2.EI" Comment=""/>
+				<Connection Source="CUR_G_INDEX.CO" Destination="F_EQ_1.REQ" Comment="" dx1="280.0"/>
+				<Connection Source="E_PERMIT_3.EO" Destination="PHASE1Q.CU" Comment=""/>
+				<Connection Source="F_AND_3.CNF" Destination="E_PERMIT_3.EI" Comment=""/>
+				<Connection Source="F_AND_4.CNF" Destination="E_PERMIT_4.EI" Comment=""/>
+				<Connection Source="E_PERMIT_4.EO" Destination="PHASE2Q.CU" Comment=""/>
+				<Connection Source="F_AND_5.CNF" Destination="E_PERMIT_5.EI" Comment=""/>
+				<Connection Source="E_PERMIT_5.EO" Destination="PHASE3Q.CU" Comment=""/>
+				<Connection Source="F_STRING_TO_BYTE_1.CNF" Destination="E_SPLIT_1.EI" Comment="" dx1="80.0" dx2="80.0" dy="980.0"/>
+				<Connection Source="E_SPLIT_1.EO1" Destination="F_AND_1.REQ" Comment="" dx1="366.6666666666667"/>
+				<Connection Source="E_SPLIT_1.EO2" Destination="F_AND_3.REQ" Comment="" dx1="500.0"/>
+				<Connection Source="E_SPLIT_1.EO2" Destination="F_AND_4.REQ" Comment="" dx1="500.0"/>
+				<Connection Source="E_SPLIT_1.EO2" Destination="F_AND_5.REQ" Comment="" dx1="500.0"/>
+				<Connection Source="E_SPLIT_1.EO1" Destination="E_CTU_1.CU" Comment="" dx1="380.0"/>
+				<Connection Source="E_SPLIT_1.EO2" Destination="E_SPLIT_2.EI" Comment="" dx1="500.0"/>
+				<Connection Source="E_SPLIT_2.EO1" Destination="F_EQ_2.REQ" Comment="" dx1="226.66666666666669"/>
+				<Connection Source="E_SPLIT_2.EO2" Destination="F_EQ_3.REQ" Comment="" dx1="226.66666666666669"/>
+				<Connection Source="E_SPLIT_2.EO2" Destination="F_EQ_4.REQ" Comment="" dx1="226.66666666666669"/>
+				<Connection Source="F_EQ_2.CNF" Destination="F_BOOL_TO_INT_2.REQ" Comment=""/>
+				<Connection Source="F_EQ_3.CNF" Destination="F_BOOL_TO_INT_3.REQ" Comment=""/>
+				<Connection Source="F_BOOL_TO_INT_2.CNF" Destination="F_MUX_2.REQ" Comment="" dx1="626.6666666666667"/>
+				<Connection Source="F_MUX_2.CNF" Destination="F_UINT_TO_INT_1.REQ" Comment="" dx1="233.33333333333334"/>
+				<Connection Source="F_UINT_TO_INT_1.CNF" Destination="F_ADD.REQ" Comment="" dx1="93.33333333333334"/>
+				<Connection Source="F_BOOL_TO_INT_3.CNF" Destination="F_MUX_3.REQ" Comment="" dx1="560.0"/>
+				<Connection Source="F_MUX_3.CNF" Destination="F_UINT_TO_INT_2.REQ" Comment="" dx1="300.0"/>
+				<Connection Source="F_UINT_TO_INT_2.CNF" Destination="F_ADD_1.REQ" Comment="" dx1="160.0"/>
+				<Connection Source="F_ADD_1.CNF" Destination="F_INT_TO_UINT.REQ" Comment=""/>
+				<Connection Source="F_EQ_4.CNF" Destination="F_BOOL_TO_UINT.REQ" Comment=""/>
+				<Connection Source="E_PERMIT_1.EO" Destination="E_SPLIT_3.EI" Comment="" dx1="73.33333333333334"/>
+				<Connection Source="E_SPLIT_3.EO1" Destination="F_EQ_6.REQ" Comment="" dx1="300.0"/>
+				<Connection Source="E_SPLIT_3.EO2" Destination="F_EQ_7.REQ" Comment="" dx1="300.0"/>
+				<Connection Source="E_SPLIT_3.EO2" Destination="F_EQ_8.REQ" Comment="" dx1="300.0"/>
+				<Connection Source="F_EQ_6.CNF" Destination="F_BOOL_TO_INT_4.REQ" Comment=""/>
+				<Connection Source="F_EQ_7.CNF" Destination="F_BOOL_TO_INT_5.REQ" Comment=""/>
+				<Connection Source="F_EQ_8.CNF" Destination="F_BOOL_TO_INT_6.REQ" Comment=""/>
+				<Connection Source="F_BOOL_TO_INT_4.CNF" Destination="F_MUX_4.REQ" Comment=""/>
+				<Connection Source="F_ADD.CNF" Destination="F_INT_TO_UINT_1.REQ" Comment=""/>
+				<Connection Source="F_BOOL_TO_INT_5.CNF" Destination="F_MUX_5.REQ" Comment=""/>
+				<Connection Source="F_BOOL_TO_INT_6.CNF" Destination="F_MUX_6.REQ" Comment=""/>
+				<Connection Source="F_MUX_4.CNF" Destination="F_UINT_TO_INT_3.REQ" Comment=""/>
+				<Connection Source="F_MUX_6.CNF" Destination="F_UINT_TO_INT_5.REQ" Comment=""/>
+				<Connection Source="F_INT_TO_UINT_2.CNF" Destination="F_UINT_TO_INT_6.REQ" Comment="" dx1="80.0" dx2="80.0" dy="566.6666666666667"/>
+				<Connection Source="F_UINT_TO_INT.CNF" Destination="E_SPLIT_3.EI" Comment="" dx1="93.33333333333334"/>
+				<Connection Source="F_ADD_4.CNF" Destination="F_INT_TO_UINT_3.REQ" Comment="" dx1="80.0" dx2="80.0" dy="766.6666666666667"/>
+				<Connection Source="F_INT_TO_UINT_4.CNF" Destination="F_ADD_5.REQ" Comment="" dx1="293.33333333333337"/>
+				<Connection Source="E_PERMIT_1.EO" Destination="CUR_G_INDEX.LD" Comment="" dx1="340.0"/>
+				<Connection Source="F_ADD_2.CNF" Destination="F_INT_TO_UINT_2.REQ" Comment=""/>
+				<Connection Source="F_UINT_TO_INT_3.CNF" Destination="F_ADD_2.REQ" Comment="" dx1="493.33333333333337"/>
+				<Connection Source="F_MUX_5.CNF" Destination="F_UINT_TO_INT_4.REQ" Comment=""/>
+				<Connection Source="F_UINT_TO_INT_6.CNF" Destination="F_ADD_4.REQ" Comment=""/>
+				<Connection Source="F_INT_TO_UINT_3.CNF" Destination="F_ADD_3.REQ" Comment="" dx1="226.66666666666669"/>
+				<Connection Source="F_ADD_3.CNF" Destination="F_INT_TO_UINT_4.REQ" Comment=""/>
+				<Connection Source="F_EQ_10.CNF" Destination="R_1Q.EI" Comment=""/>
+				<Connection Source="F_UINT_TO_INT_7.CNF" Destination="F_EQ_10.REQ" Comment=""/>
+				<Connection Source="F_UINT_TO_INT_7.CNF" Destination="F_EQ_12.REQ" Comment="" dx1="93.33333333333334"/>
+				<Connection Source="F_EQ_12.CNF" Destination="R_3Q.EI" Comment=""/>
+				<Connection Source="F_UINT_TO_INT_7.CNF" Destination="F_EQ_13.REQ" Comment="" dx1="300.0"/>
+				<Connection Source="F_EQ_13.CNF" Destination="R_2Q.EI" Comment=""/>
+				<Connection Source="R_3Q.EO" Destination="PHASE3Q.R" Comment="" dx1="80.0" dx2="80.0" dy="740.0"/>
+				<Connection Source="R_2Q.EO" Destination="PHASE2Q.R" Comment="" dx1="80.0" dx2="80.0" dy="286.6666666666667"/>
+				<Connection Source="R_1Q.EO" Destination="PHASE1Q.R" Comment="" dx1="80.0" dx2="80.0" dy="-300.0"/>
+				<Connection Source="E_PERMIT_1.EO" Destination="F_UINT_TO_INT_7.REQ" Comment="" dx1="3093.3333333333335"/>
+			</EventConnections>
+			<DataConnections>
+				<Connection Source="Phase_LEN.CV" Destination="F_GT.IN1" Comment="" dx1="613.3333333333334"/>
+				<Connection Source="Phase_LEN.CV" Destination="F_EQ.IN1" Comment="" dx1="613.3333333333334"/>
+				<Connection Source="F_GT.OUT" Destination="F_BOOL_TO_INT.IN" Comment=""/>
+				<Connection Source="F_BOOL_TO_INT.OUT" Destination="Yellow_LEN.K" Comment=""/>
+				<Connection Source="F_EQ.OUT" Destination="E_PERMIT_1.PERMIT" Comment="" dx1="200.0"/>
+				<Connection Source="F_EQ_1.OUT" Destination="E_PERMIT.PERMIT" Comment=""/>
+				<Connection Source="Yellow_LEN.OUT" Destination="F_BOOL_TO_INT_1.IN" Comment=""/>
+				<Connection Source="F_MUL.OUT" Destination="F_UINT_TO_INT.IN" Comment=""/>
+				<Connection Source="F_UINT_TO_INT.OUT" Destination="Result.IN2" Comment="" dx1="426.6666666666667"/>
+				<Connection Source="F_BOOL_TO_INT_1.OUT" Destination="Result.IN1" Comment="" dx1="426.6666666666667"/>
+				<Connection Source="F_STRING_TO_BYTE_1.OUT" Destination="F_AND_1.IN1" Comment="" dx1="273.33333333333337" dx2="80.0" dy="1333.3333333333335"/>
+				<Connection Source="E_CTU_1.CV" Destination="F_LE.IN1" Comment="" dx1="413.33333333333337"/>
+				<Connection Source="F_AND.OUT" Destination="F_BYTE_TO_INT_1.IN" Comment="" dx1="186.66666666666669"/>
+				<Connection Source="F_BYTE_TO_INT_1.OUT" Destination="F_INT_TO_BYTE.IN" Comment="" dx1="160.0"/>
+				<Connection Source="F_EQ_5.OUT" Destination="F_AND.IN2" Comment="" dx1="286.6666666666667"/>
+				<Connection Source="F_LE.OUT" Destination="F_AND.IN1" Comment="" dx1="286.6666666666667"/>
+				<Connection Source="F_INT_TO_BYTE.OUT" Destination="F_AND_2.IN2" Comment="" dx1="93.33333333333334"/>
+				<Connection Source="F_GT_1.OUT" Destination="F_AND_2.IN1" Comment="" dx1="1766.6666666666667"/>
+				<Connection Source="F_AND_2.OUT" Destination="E_PERMIT_2.PERMIT" Comment=""/>
+				<Connection Source="SUBSCRIBE_2.RD_1" Destination="F_STRING_TO_BYTE_1.IN" Comment="" dx1="340.0"/>
+				<Connection Source="F_INT_TO_STRING.OUT" Destination="PUBLISH_2.SD_1" Comment="" dx1="240.0"/>
+				<Connection Source="F_AND_1.OUT" Destination="F_BYTE_TO_UINT.IN" Comment=""/>
+				<Connection Source="F_BYTE_TO_UINT.OUT" Destination="F_GT_1.IN1" Comment=""/>
+				<Connection Source="CUR_G_INDEX.CV" Destination="F_MUL.IN1" Comment="" dx1="600.0"/>
+				<Connection Source="CUR_G_INDEX.CV" Destination="F_EQ_1.IN1" Comment="" dx1="606.6666666666667"/>
+				<Connection Source="CUR_G_INDEX.CV" Destination="F_EQ_5.IN2" Comment="" dx1="600.0" dx2="80.0" dy="3120.0"/>
+				<Connection Source="F_AND_3.OUT" Destination="E_PERMIT_3.PERMIT" Comment=""/>
+				<Connection Source="F_AND_4.OUT" Destination="E_PERMIT_4.PERMIT" Comment=""/>
+				<Connection Source="F_AND_5.OUT" Destination="E_PERMIT_5.PERMIT" Comment=""/>
+				<Connection Source="F_STRING_TO_BYTE_1.OUT" Destination="F_AND_3.IN1" Comment="" dx1="266.6666666666667" dx2="340.0" dy="1340.0"/>
+				<Connection Source="F_STRING_TO_BYTE_1.OUT" Destination="F_AND_4.IN1" Comment="" dx1="266.6666666666667" dx2="346.6666666666667" dy="1340.0"/>
+				<Connection Source="F_STRING_TO_BYTE_1.OUT" Destination="F_AND_5.IN1" Comment="" dx1="266.6666666666667" dx2="346.6666666666667" dy="1353.3333333333335"/>
+				<Connection Source="PHASE1Q.CV" Destination="F_EQ_2.IN1" Comment="" dx1="273.33333333333337"/>
+				<Connection Source="PHASE2Q.CV" Destination="F_EQ_3.IN1" Comment="" dx1="273.33333333333337"/>
+				<Connection Source="PHASE3Q.CV" Destination="F_EQ_4.IN1" Comment="" dx1="273.33333333333337"/>
+				<Connection Source="F_EQ_2.OUT" Destination="F_BOOL_TO_INT_2.IN" Comment=""/>
+				<Connection Source="F_EQ_3.OUT" Destination="F_BOOL_TO_INT_3.IN" Comment=""/>
+				<Connection Source="F_BOOL_TO_INT_2.OUT" Destination="F_ADD.IN1" Comment="" dx1="446.6666666666667"/>
+				<Connection Source="F_MUX_2.OUT" Destination="F_UINT_TO_INT_1.IN" Comment="" dx1="233.33333333333334"/>
+				<Connection Source="F_UINT_TO_INT_1.OUT" Destination="F_ADD.IN2" Comment="" dx1="120.0"/>
+				<Connection Source="F_BOOL_TO_INT_2.OUT" Destination="F_MUX_2.K" Comment="" dx1="440.0"/>
+				<Connection Source="F_MUX_3.OUT" Destination="F_UINT_TO_INT_2.IN" Comment="" dx1="300.0"/>
+				<Connection Source="F_BOOL_TO_INT_3.OUT" Destination="F_MUX_3.K" Comment="" dx1="560.0"/>
+				<Connection Source="F_BOOL_TO_INT_3.OUT" Destination="F_ADD_1.IN1" Comment="" dx1="433.33333333333337"/>
+				<Connection Source="F_INT_TO_UINT.OUT" Destination="F_MUX_2.IN2" Comment="" dx1="80.0" dx2="80.0" dy="-466.6666666666667"/>
+				<Connection Source="F_ADD_1.OUT" Destination="F_INT_TO_UINT.IN" Comment=""/>
+				<Connection Source="F_UINT_TO_INT_2.OUT" Destination="F_ADD_1.IN2" Comment="" dx1="206.66666666666669"/>
+				<Connection Source="F_EQ_4.OUT" Destination="F_BOOL_TO_UINT.IN" Comment=""/>
+				<Connection Source="F_BOOL_TO_UINT.OUT" Destination="F_MUX_3.IN2" Comment="" dx1="400.0"/>
+				<Connection Source="CUR_G_INDEX.CV" Destination="F_EQ_6.IN1" Comment="" dx1="600.0"/>
+				<Connection Source="CUR_G_INDEX.CV" Destination="F_EQ_7.IN1" Comment="" dx1="606.6666666666667"/>
+				<Connection Source="CUR_G_INDEX.CV" Destination="F_EQ_8.IN1" Comment="" dx1="613.3333333333334"/>
+				<Connection Source="F_EQ_6.OUT" Destination="F_BOOL_TO_INT_4.IN" Comment=""/>
+				<Connection Source="F_EQ_7.OUT" Destination="F_BOOL_TO_INT_5.IN" Comment=""/>
+				<Connection Source="F_EQ_8.OUT" Destination="F_BOOL_TO_INT_6.IN" Comment=""/>
+				<Connection Source="F_BOOL_TO_INT_4.OUT" Destination="F_MUX_4.K" Comment=""/>
+				<Connection Source="F_BOOL_TO_INT_5.OUT" Destination="F_MUX_5.K" Comment=""/>
+				<Connection Source="F_BOOL_TO_INT_6.OUT" Destination="F_MUX_6.K" Comment=""/>
+				<Connection Source="F_ADD.OUT" Destination="F_INT_TO_UINT_1.IN" Comment=""/>
+				<Connection Source="F_INT_TO_UINT_1.OUT" Destination="F_MUX_4.IN2" Comment="" dx1="1053.3333333333335"/>
+				<Connection Source="F_INT_TO_UINT.OUT" Destination="F_MUX_5.IN2" Comment="" dx1="1233.3333333333335"/>
+				<Connection Source="F_BOOL_TO_UINT.OUT" Destination="F_MUX_6.IN2" Comment="" dx1="6180.0"/>
+				<Connection Source="F_MUX_4.OUT" Destination="F_UINT_TO_INT_3.IN" Comment=""/>
+				<Connection Source="F_MUX_6.OUT" Destination="F_UINT_TO_INT_5.IN" Comment=""/>
+				<Connection Source="F_INT_TO_UINT_2.OUT" Destination="F_UINT_TO_INT_6.IN" Comment="" dx1="80.0" dx2="160.0" dy="506.6666666666667"/>
+				<Connection Source="F_UINT_TO_INT_5.OUT" Destination="F_ADD_4.IN2" Comment="" dx1="80.0" dx2="80.0" dy="586.6666666666667"/>
+				<Connection Source="Result.OUT" Destination="F_INT_TO_STRING.IN" Comment="" dx1="346.6666666666667"/>
+				<Connection Source="F_ADD_4.OUT" Destination="F_INT_TO_UINT_3.IN" Comment="" dx1="80.0" dx2="173.33333333333334" dy="586.6666666666667"/>
+				<Connection Source="F_ADD_5.OUT" Destination="CUR_G_INDEX.PV" Comment="" dx1="2200.0" dx2="80.0" dy="-3600.0"/>
+				<Connection Source="F_ADD_2.OUT" Destination="F_INT_TO_UINT_2.IN" Comment=""/>
+				<Connection Source="F_UINT_TO_INT_3.OUT" Destination="F_ADD_2.IN1" Comment="" dx1="433.33333333333337"/>
+				<Connection Source="F_UINT_TO_INT_4.OUT" Destination="F_ADD_2.IN2" Comment="" dx1="386.6666666666667"/>
+				<Connection Source="F_MUX_5.OUT" Destination="F_UINT_TO_INT_4.IN" Comment=""/>
+				<Connection Source="F_UINT_TO_INT_6.OUT" Destination="F_ADD_4.IN1" Comment=""/>
+				<Connection Source="CUR_G_INDEX.CV" Destination="F_ADD_3.IN2" Comment="" dx1="620.0"/>
+				<Connection Source="F_INT_TO_UINT_3.OUT" Destination="F_ADD_3.IN1" Comment="" dx1="226.66666666666669"/>
+				<Connection Source="F_ADD_3.OUT" Destination="F_INT_TO_UINT_4.IN" Comment=""/>
+				<Connection Source="F_INT_TO_UINT_4.OUT" Destination="F_ADD_5.IN1" Comment=""/>
+				<Connection Source="CUR_G_INDEX.CV" Destination="F_UINT_TO_INT_7.IN" Comment="" dx1="613.3333333333334"/>
+				<Connection Source="F_EQ_10.OUT" Destination="R_1Q.PERMIT" Comment=""/>
+				<Connection Source="F_UINT_TO_INT_7.OUT" Destination="F_EQ_10.IN1" Comment=""/>
+				<Connection Source="F_UINT_TO_INT_7.OUT" Destination="F_EQ_12.IN1" Comment="" dx1="93.33333333333334"/>
+				<Connection Source="F_EQ_12.OUT" Destination="R_3Q.PERMIT" Comment=""/>
+				<Connection Source="F_UINT_TO_INT_7.OUT" Destination="F_EQ_13.IN1" Comment="" dx1="300.0"/>
+				<Connection Source="F_EQ_13.OUT" Destination="R_2Q.PERMIT" Comment=""/>
+			</DataConnections>
+		</SubAppNetwork>
+	</Application>
+	<Device Name="FORTE_PC" Type="FORTE_PC" Comment="" x="6573.333333333334" y="153.33333333333334">
+		<Parameter Name="MGR_ID" Value="&quot;localhost:61499&quot;"/>
+		<Attribute Name="Profile" Type="STRING" Value="HOLOBLOC" Comment="device profile"/>
+		<Attribute Name="Color" Type="STRING" Value="255,190,111" Comment="color"/>
+		<Resource Name="EMB_RES" Type="EMB_RES" Comment="" x="0.0" y="0.0">
+			<FBNetwork>
+				<FB Name="Phase_LEN" Type="E_CTU" Comment="" x="2266.666666666667" y="-266.6666666666667">
+				</FB>
+				<FB Name="F_GT" Type="F_GT" Comment="" x="4000.0" y="-266.6666666666667">
+					<Parameter Name="IN2" Value="UINT#15"/>
+				</FB>
+				<FB Name="E_PERMIT_1" Type="E_PERMIT" Comment="" x="5066.666666666667" y="1200.0">
+				</FB>
+				<FB Name="F_EQ" Type="F_EQ" Comment="" x="4000.0" y="800.0">
+					<Parameter Name="IN2" Value="UINT#18"/>
+				</FB>
+				<FB Name="Yellow_LEN" Type="F_MUX_2" Comment="" x="6666.666666666667" y="-266.6666666666667">
+					<Parameter Name="IN1" Value="UINT#0"/>
+					<Parameter Name="IN2" Value="UINT#1"/>
+				</FB>
+				<FB Name="F_BOOL_TO_INT" Type="F_BOOL_TO_INT" Comment="" x="5066.666666666667" y="-266.6666666666667">
+				</FB>
+				<FB Name="F_EQ_1" Type="F_EQ" Comment="" x="7866.666666666667" y="1600.0">
+					<Parameter Name="IN2" Value="UINT#4"/>
+				</FB>
+				<FB Name="E_PERMIT" Type="E_PERMIT" Comment="" x="8933.333333333334" y="1600.0">
+				</FB>
+				<FB Name="Result" Type="F_ADD" Comment="" x="10933.333333333334" y="0.0">
+				</FB>
+				<FB Name="F_BOOL_TO_INT_1" Type="F_BOOL_TO_INT" Comment="" x="9200.0" y="-266.6666666666667">
+				</FB>
+				<FB Name="F_MUL" Type="F_MUL" Comment="" x="8000.0" y="666.6666666666667">
+					<Parameter Name="IN2" Value="UINT#2"/>
+				</FB>
+				<FB Name="F_UINT_TO_INT" Type="F_UINT_TO_INT" Comment="" x="9200.0" y="666.6666666666667">
+				</FB>
+				<FB Name="F_INT_TO_STRING" Type="F_INT_TO_STRING" Comment="" x="12140.0" y="53.333333333333336">
+				</FB>
+				<FB Name="PUBLISH_2" Type="PUBLISH_1" Comment="" x="13600.0" y="-1466.6666666666667">
+					<Parameter Name="QI" Value="1"/>
+					<Parameter Name="ID" Value="raw[].mqtt[tcp://localhost:1883, forte, output]"/>
+				</FB>
+				<FB Name="SUBSCRIBE_2" Type="SUBSCRIBE_1" Comment="" x="-3733.3333333333335" y="-1466.6666666666667">
+					<Parameter Name="QI" Value="1"/>
+					<Parameter Name="ID" Value="raw[].mqtt[tcp://localhost:1883, forte, input]"/>
+				</FB>
+				<FB Name="F_STRING_TO_BYTE_1" Type="F_STRING_TO_BYTE" Comment="" x="-2000.0" y="-933.3333333333334">
+				</FB>
+				<FB Name="PHASE1Q" Type="E_CTU" Comment="" x="1733.3333333333335" y="5733.333333333334">
+				</FB>
+				<FB Name="F_AND_1" Type="F_AND" Comment="" x="-1066.6666666666667" y="2266.666666666667">
+					<Parameter Name="IN2" Value="BYTE#1"/>
+				</FB>
+				<FB Name="F_GT_1" Type="F_GT" Comment="" x="1200.0" y="2266.666666666667">
+					<Parameter Name="IN2" Value="UINT#0"/>
+				</FB>
+				<FB Name="E_CTU_1" Type="E_CTU" Comment="" x="-133.33333333333334" y="3066.666666666667">
+				</FB>
+				<FB Name="F_LE" Type="F_LE" Comment="" x="1200.0" y="3066.666666666667">
+					<Parameter Name="IN2" Value="UINT#25"/>
+				</FB>
+				<FB Name="E_PERMIT_2" Type="E_PERMIT" Comment="" x="6666.666666666667" y="2666.666666666667">
+				</FB>
+				<FB Name="F_EQ_5" Type="F_EQ" Comment="" x="1200.0" y="4266.666666666667">
+					<Parameter Name="IN1" Value="UINT#0"/>
+				</FB>
+				<FB Name="F_AND" Type="F_AND" Comment="" x="2266.666666666667" y="3200.0">
+				</FB>
+				<FB Name="F_AND_2" Type="F_AND" Comment="" x="5466.666666666667" y="2666.666666666667">
+				</FB>
+				<FB Name="F_BYTE_TO_INT_1" Type="F_BYTE_TO_INT" Comment="" x="3066.666666666667" y="3200.0">
+				</FB>
+				<FB Name="F_INT_TO_BYTE" Type="F_INT_TO_BYTE" Comment="" x="4266.666666666667" y="3200.0">
+				</FB>
+				<FB Name="F_BYTE_TO_UINT" Type="F_BYTE_TO_UINT" Comment="" x="-133.33333333333334" y="2266.666666666667">
+				</FB>
+				<FB Name="CUR_G_INDEX" Type="E_CTUD" Comment="" x="6400.0" y="933.3333333333334">
+				</FB>
+				<FB Name="E_PERMIT_3" Type="E_PERMIT" Comment="" x="266.6666666666667" y="5733.333333333334">
+				</FB>
+				<FB Name="F_AND_3" Type="F_AND" Comment="" x="-800.0" y="5733.333333333334">
+					<Parameter Name="IN2" Value="BYTE#2"/>
+				</FB>
+				<FB Name="F_AND_4" Type="F_AND" Comment="" x="-800.0" y="6933.333333333334">
+					<Parameter Name="IN2" Value="BYTE#4"/>
+				</FB>
+				<FB Name="PHASE2Q" Type="E_CTU" Comment="" x="1733.3333333333335" y="6933.333333333334">
+				</FB>
+				<FB Name="E_PERMIT_4" Type="E_PERMIT" Comment="" x="266.6666666666667" y="6933.333333333334">
+				</FB>
+				<FB Name="F_AND_5" Type="F_AND" Comment="" x="-800.0" y="8000.0">
+					<Parameter Name="IN2" Value="BYTE#8"/>
+				</FB>
+				<FB Name="PHASE3Q" Type="E_CTU" Comment="" x="1733.3333333333335" y="8000.0">
+				</FB>
+				<FB Name="E_PERMIT_5" Type="E_PERMIT" Comment="" x="266.6666666666667" y="8000.0">
+				</FB>
+				<FB Name="E_SPLIT_1" Type="E_SPLIT" Comment="" x="-2400.0" y="4533.333333333334">
+				</FB>
+				<FB Name="E_SPLIT_2" Type="E_SPLIT" Comment="" x="1733.3333333333335" y="5066.666666666667">
+				</FB>
+				<FB Name="F_EQ_2" Type="F_EQ" Comment="" x="2800.0" y="5866.666666666667">
+					<Parameter Name="IN2" Value="UINT#0"/>
+				</FB>
+				<FB Name="F_EQ_3" Type="F_EQ" Comment="" x="2800.0" y="7066.666666666667">
+					<Parameter Name="IN2" Value="UINT#0"/>
+				</FB>
+				<FB Name="F_EQ_4" Type="F_EQ" Comment="" x="2800.0" y="8133.333333333334">
+					<Parameter Name="IN2" Value="UINT#0"/>
+				</FB>
+				<FB Name="F_BOOL_TO_INT_2" Type="F_BOOL_TO_INT" Comment="" x="3466.666666666667" y="5866.666666666667">
+				</FB>
+				<FB Name="F_BOOL_TO_INT_3" Type="F_BOOL_TO_INT" Comment="" x="3466.666666666667" y="7066.666666666667">
+				</FB>
+				<FB Name="F_MUX_2" Type="F_MUX_2" Comment="" x="5600.0" y="5733.333333333334">
+					<Parameter Name="IN1" Value="UINT#0"/>
+				</FB>
+				<FB Name="F_ADD" Type="F_ADD" Comment="" x="7866.666666666667" y="5200.0">
+				</FB>
+				<FB Name="F_UINT_TO_INT_1" Type="F_UINT_TO_INT" Comment="" x="6666.666666666667" y="5866.666666666667">
+				</FB>
+				<FB Name="F_MUX_3" Type="F_MUX_2" Comment="" x="5466.666666666667" y="7066.666666666667">
+					<Parameter Name="IN1" Value="UINT#0"/>
+				</FB>
+				<FB Name="F_UINT_TO_INT_2" Type="F_UINT_TO_INT" Comment="" x="6666.666666666667" y="7066.666666666667">
+				</FB>
+				<FB Name="F_ADD_1" Type="F_ADD" Comment="" x="7866.666666666667" y="6533.333333333334">
+				</FB>
+				<FB Name="F_INT_TO_UINT" Type="F_INT_TO_UINT" Comment="" x="8533.333333333334" y="6533.333333333334">
+				</FB>
+				<FB Name="F_BOOL_TO_UINT" Type="F_BOOL_TO_UINT" Comment="" x="3733.3333333333335" y="8133.333333333334">
+				</FB>
+				<FB Name="F_EQ_6" Type="F_EQ" Comment="" x="11466.666666666668" y="2400.0">
+					<Parameter Name="IN2" Value="UINT#0"/>
+				</FB>
+				<FB Name="F_EQ_7" Type="F_EQ" Comment="" x="11466.666666666668" y="3200.0">
+					<Parameter Name="IN2" Value="UINT#1"/>
+				</FB>
+				<FB Name="F_EQ_8" Type="F_EQ" Comment="" x="11466.666666666668" y="4133.333333333334">
+					<Parameter Name="IN2" Value="UINT#2"/>
+				</FB>
+				<FB Name="E_SPLIT_3" Type="E_SPLIT" Comment="" x="10266.666666666668" y="2266.666666666667">
+				</FB>
+				<FB Name="F_MUX_4" Type="F_MUX_2" Comment="" x="13333.333333333334" y="2400.0">
+					<Parameter Name="IN1" Value="UINT#0"/>
+				</FB>
+				<FB Name="F_BOOL_TO_INT_4" Type="F_BOOL_TO_INT" Comment="" x="12133.333333333334" y="2400.0">
+				</FB>
+				<FB Name="F_BOOL_TO_INT_5" Type="F_BOOL_TO_INT" Comment="" x="12133.333333333334" y="3200.0">
+				</FB>
+				<FB Name="F_BOOL_TO_INT_6" Type="F_BOOL_TO_INT" Comment="" x="12133.333333333334" y="4133.333333333334">
+				</FB>
+				<FB Name="F_MUX_5" Type="F_MUX_2" Comment="" x="13333.333333333334" y="3200.0">
+					<Parameter Name="IN1" Value="UINT#0"/>
+				</FB>
+				<FB Name="F_MUX_6" Type="F_MUX_2" Comment="" x="13333.333333333334" y="4133.333333333334">
+					<Parameter Name="IN1" Value="UINT#0"/>
+				</FB>
+				<FB Name="F_INT_TO_UINT_1" Type="F_INT_TO_UINT" Comment="" x="8533.333333333334" y="5200.0">
+				</FB>
+				<FB Name="F_UINT_TO_INT_3" Type="F_UINT_TO_INT" Comment="" x="14266.666666666668" y="2400.0">
+				</FB>
+				<FB Name="F_UINT_TO_INT_4" Type="F_UINT_TO_INT" Comment="" x="14266.666666666668" y="3200.0">
+				</FB>
+				<FB Name="F_UINT_TO_INT_5" Type="F_UINT_TO_INT" Comment="" x="14266.666666666668" y="4133.333333333334">
+				</FB>
+				<FB Name="F_ADD_2" Type="F_ADD" Comment="" x="16140.0" y="3333.3333333333335">
+				</FB>
+				<FB Name="F_INT_TO_UINT_2" Type="F_INT_TO_UINT" Comment="" x="17333.333333333336" y="3333.3333333333335">
+				</FB>
+				<FB Name="F_UINT_TO_INT_6" Type="F_UINT_TO_INT" Comment="" x="16140.0" y="4400.0">
+				</FB>
+				<FB Name="F_ADD_4" Type="F_ADD" Comment="" x="17466.666666666668" y="4400.0">
+				</FB>
+				<FB Name="F_ADD_3" Type="F_ADD" Comment="" x="13600.0" y="5466.666666666667">
+				</FB>
+				<FB Name="F_INT_TO_UINT_3" Type="F_INT_TO_UINT" Comment="" x="12266.666666666668" y="5466.666666666667">
+				</FB>
+				<FB Name="F_INT_TO_UINT_4" Type="F_INT_TO_UINT" Comment="" x="14400.0" y="5466.666666666667">
+				</FB>
+				<FB Name="F_ADD_5" Type="F_ADD" Comment="" x="15733.333333333334" y="5466.666666666667">
+					<Parameter Name="IN2" Value="UINT#1"/>
+				</FB>
+				<FB Name="F_EQ_9" Type="F_EQ" Comment="" x="14133.333333333334" y="0.0">
+				</FB>
+				<FB Name="F_UINT_TO_INT_7" Type="F_UINT_TO_INT" Comment="" x="11466.666666666668" y="6666.666666666667">
+				</FB>
+				<FB Name="F_EQ_10" Type="F_EQ" Comment="" x="12933.333333333334" y="6666.666666666667">
+					<Parameter Name="IN2" Value="INT#1"/>
+				</FB>
+				<FB Name="R_1Q" Type="E_PERMIT" Comment="" x="13866.666666666668" y="6666.666666666667">
+				</FB>
+				<FB Name="R_3Q" Type="E_PERMIT" Comment="" x="13866.666666666668" y="8266.666666666668">
+				</FB>
+				<FB Name="F_EQ_12" Type="F_EQ" Comment="" x="12933.333333333334" y="8266.666666666668">
+					<Parameter Name="IN2" Value="INT#3"/>
+				</FB>
+				<FB Name="R_2Q" Type="E_PERMIT" Comment="" x="13866.666666666668" y="7466.666666666667">
+				</FB>
+				<FB Name="F_EQ_13" Type="F_EQ" Comment="" x="12933.333333333334" y="7466.666666666667">
+					<Parameter Name="IN2" Value="INT#2"/>
+				</FB>
+				<EventConnections>
+					<Connection Source="Phase_LEN.CUO" Destination="F_GT.REQ" Comment=""/>
+					<Connection Source="E_PERMIT_1.EO" Destination="Phase_LEN.R" Comment="" dx1="80.0" dx2="80.0" dy="-680.0"/>
+					<Connection Source="Phase_LEN.CUO" Destination="F_EQ.REQ" Comment="" dx1="606.6666666666667"/>
+					<Connection Source="F_EQ.CNF" Destination="E_PERMIT_1.EI" Comment="" dx1="300.0"/>
+					<Connection Source="F_GT.CNF" Destination="F_BOOL_TO_INT.REQ" Comment=""/>
+					<Connection Source="F_BOOL_TO_INT.CNF" Destination="Yellow_LEN.REQ" Comment=""/>
+					<Connection Source="F_EQ_1.CNF" Destination="E_PERMIT.EI" Comment=""/>
+					<Connection Source="Yellow_LEN.CNF" Destination="F_BOOL_TO_INT_1.REQ" Comment=""/>
+					<Connection Source="F_BOOL_TO_INT_1.CNF" Destination="Result.REQ" Comment="" dx1="420.0"/>
+					<Connection Source="F_EQ.CNF" Destination="F_MUL.REQ" Comment="" dx1="1766.6666666666667"/>
+					<Connection Source="F_MUL.CNF" Destination="F_UINT_TO_INT.REQ" Comment=""/>
+					<Connection Source="Result.CNF" Destination="F_INT_TO_STRING.REQ" Comment="" dx1="346.6666666666667"/>
+					<Connection Source="F_INT_TO_STRING.CNF" Destination="PUBLISH_2.REQ" Comment="" dx1="240.0"/>
+					<Connection Source="SUBSCRIBE_2.INITO" Destination="PUBLISH_2.INIT" Comment=""/>
+					<Connection Source="SUBSCRIBE_2.IND" Destination="F_STRING_TO_BYTE_1.REQ" Comment="" dx1="466.6666666666667"/>
+					<Connection Source="F_STRING_TO_BYTE_1.CNF" Destination="Phase_LEN.CU" Comment="" dx1="1620.0"/>
+					<Connection Source="E_PERMIT.EO" Destination="E_CTU_1.R" Comment="" dx1="80.0" dx2="80.0" dy="780.0"/>
+					<Connection Source="E_CTU_1.CUO" Destination="F_LE.REQ" Comment=""/>
+					<Connection Source="E_PERMIT_2.EO" Destination="Phase_LEN.R" Comment="" dx1="80.0" dx2="80.0" dy="-1413.3333333333335"/>
+					<Connection Source="E_CTU_1.CUO" Destination="F_EQ_5.REQ" Comment="" dx1="406.6666666666667"/>
+					<Connection Source="F_GT_1.CNF" Destination="F_AND.REQ" Comment="" dx1="300.0"/>
+					<Connection Source="F_AND_2.CNF" Destination="E_PERMIT_2.EI" Comment=""/>
+					<Connection Source="F_AND.CNF" Destination="F_BYTE_TO_INT_1.REQ" Comment=""/>
+					<Connection Source="F_BYTE_TO_INT_1.CNF" Destination="F_INT_TO_BYTE.REQ" Comment=""/>
+					<Connection Source="F_INT_TO_BYTE.CNF" Destination="F_AND_2.REQ" Comment="" dx1="153.33333333333334"/>
+					<Connection Source="F_AND_1.CNF" Destination="F_BYTE_TO_UINT.REQ" Comment=""/>
+					<Connection Source="F_BYTE_TO_UINT.CNF" Destination="F_GT_1.REQ" Comment=""/>
+					<Connection Source="E_PERMIT_1.EO" Destination="CUR_G_INDEX.CU" Comment="" dx1="340.0"/>
+					<Connection Source="E_PERMIT.EO" Destination="CUR_G_INDEX.R" Comment="" dx1="80.0" dx2="80.0" dy="-233.33333333333334"/>
+					<Connection Source="E_PERMIT_1.EO" Destination="CUR_G_INDEX.LD" Comment="" dx1="340.0"/>
+					<Connection Source="CUR_G_INDEX.CO" Destination="F_EQ_1.REQ" Comment="" dx1="453.33333333333337"/>
+					<Connection Source="E_PERMIT_3.EO" Destination="PHASE1Q.CU" Comment=""/>
+					<Connection Source="F_AND_3.CNF" Destination="E_PERMIT_3.EI" Comment=""/>
+					<Connection Source="F_AND_4.CNF" Destination="E_PERMIT_4.EI" Comment=""/>
+					<Connection Source="E_PERMIT_4.EO" Destination="PHASE2Q.CU" Comment=""/>
+					<Connection Source="F_AND_5.CNF" Destination="E_PERMIT_5.EI" Comment=""/>
+					<Connection Source="E_PERMIT_5.EO" Destination="PHASE3Q.CU" Comment=""/>
+					<Connection Source="F_STRING_TO_BYTE_1.CNF" Destination="E_SPLIT_1.EI" Comment="" dx1="80.0" dx2="80.0" dy="2733.3333333333335"/>
+					<Connection Source="E_SPLIT_1.EO1" Destination="F_AND_1.REQ" Comment="" dx1="360.0"/>
+					<Connection Source="E_SPLIT_1.EO1" Destination="E_CTU_1.CU" Comment="" dx1="826.6666666666667"/>
+					<Connection Source="E_SPLIT_1.EO2" Destination="F_AND_3.REQ" Comment="" dx1="493.33333333333337"/>
+					<Connection Source="E_SPLIT_1.EO2" Destination="F_AND_4.REQ" Comment="" dx1="493.33333333333337"/>
+					<Connection Source="E_SPLIT_1.EO2" Destination="F_AND_5.REQ" Comment="" dx1="493.33333333333337"/>
+					<Connection Source="E_SPLIT_1.EO2" Destination="E_SPLIT_2.EI" Comment="" dx1="1760.0"/>
+					<Connection Source="E_SPLIT_2.EO1" Destination="F_EQ_2.REQ" Comment="" dx1="226.66666666666669"/>
+					<Connection Source="E_SPLIT_2.EO2" Destination="F_EQ_3.REQ" Comment="" dx1="226.66666666666669"/>
+					<Connection Source="E_SPLIT_2.EO2" Destination="F_EQ_4.REQ" Comment="" dx1="226.66666666666669"/>
+					<Connection Source="F_EQ_2.CNF" Destination="F_BOOL_TO_INT_2.REQ" Comment=""/>
+					<Connection Source="F_EQ_3.CNF" Destination="F_BOOL_TO_INT_3.REQ" Comment=""/>
+					<Connection Source="F_BOOL_TO_INT_2.CNF" Destination="F_MUX_2.REQ" Comment="" dx1="620.0"/>
+					<Connection Source="F_MUX_2.CNF" Destination="F_UINT_TO_INT_1.REQ" Comment="" dx1="226.66666666666669"/>
+					<Connection Source="F_UINT_TO_INT_1.CNF" Destination="F_ADD.REQ" Comment="" dx1="153.33333333333334"/>
+					<Connection Source="F_BOOL_TO_INT_3.CNF" Destination="F_MUX_3.REQ" Comment=""/>
+					<Connection Source="F_MUX_3.CNF" Destination="F_UINT_TO_INT_2.REQ" Comment=""/>
+					<Connection Source="F_UINT_TO_INT_2.CNF" Destination="F_ADD_1.REQ" Comment="" dx1="153.33333333333334"/>
+					<Connection Source="F_ADD_1.CNF" Destination="F_INT_TO_UINT.REQ" Comment=""/>
+					<Connection Source="F_EQ_4.CNF" Destination="F_BOOL_TO_UINT.REQ" Comment=""/>
+					<Connection Source="E_PERMIT_1.EO" Destination="E_SPLIT_3.EI" Comment="" dx1="2273.3333333333335"/>
+					<Connection Source="F_UINT_TO_INT.CNF" Destination="E_SPLIT_3.EI" Comment="" dx1="86.66666666666667"/>
+					<Connection Source="E_SPLIT_3.EO1" Destination="F_EQ_6.REQ" Comment="" dx1="293.33333333333337"/>
+					<Connection Source="E_SPLIT_3.EO2" Destination="F_EQ_7.REQ" Comment="" dx1="293.33333333333337"/>
+					<Connection Source="E_SPLIT_3.EO2" Destination="F_EQ_8.REQ" Comment="" dx1="293.33333333333337"/>
+					<Connection Source="F_EQ_6.CNF" Destination="F_BOOL_TO_INT_4.REQ" Comment=""/>
+					<Connection Source="F_BOOL_TO_INT_4.CNF" Destination="F_MUX_4.REQ" Comment=""/>
+					<Connection Source="F_EQ_7.CNF" Destination="F_BOOL_TO_INT_5.REQ" Comment=""/>
+					<Connection Source="F_EQ_8.CNF" Destination="F_BOOL_TO_INT_6.REQ" Comment=""/>
+					<Connection Source="F_BOOL_TO_INT_5.CNF" Destination="F_MUX_5.REQ" Comment=""/>
+					<Connection Source="F_BOOL_TO_INT_6.CNF" Destination="F_MUX_6.REQ" Comment=""/>
+					<Connection Source="F_ADD.CNF" Destination="F_INT_TO_UINT_1.REQ" Comment=""/>
+					<Connection Source="F_MUX_4.CNF" Destination="F_UINT_TO_INT_3.REQ" Comment=""/>
+					<Connection Source="F_MUX_5.CNF" Destination="F_UINT_TO_INT_4.REQ" Comment=""/>
+					<Connection Source="F_MUX_6.CNF" Destination="F_UINT_TO_INT_5.REQ" Comment=""/>
+					<Connection Source="F_UINT_TO_INT_3.CNF" Destination="F_ADD_2.REQ" Comment="" dx1="493.33333333333337"/>
+					<Connection Source="F_ADD_2.CNF" Destination="F_INT_TO_UINT_2.REQ" Comment=""/>
+					<Connection Source="F_INT_TO_UINT_2.CNF" Destination="F_UINT_TO_INT_6.REQ" Comment="" dx1="80.0" dx2="80.0" dy="533.3333333333334"/>
+					<Connection Source="F_UINT_TO_INT_6.CNF" Destination="F_ADD_4.REQ" Comment=""/>
+					<Connection Source="F_ADD_4.CNF" Destination="F_INT_TO_UINT_3.REQ" Comment="" dx1="80.0" dx2="80.0" dy="533.3333333333334"/>
+					<Connection Source="F_INT_TO_UINT_3.CNF" Destination="F_ADD_3.REQ" Comment=""/>
+					<Connection Source="F_ADD_3.CNF" Destination="F_INT_TO_UINT_4.REQ" Comment=""/>
+					<Connection Source="F_INT_TO_UINT_4.CNF" Destination="F_ADD_5.REQ" Comment=""/>
+					<Connection Source="F_UINT_TO_INT_7.CNF" Destination="F_EQ_10.REQ" Comment=""/>
+					<Connection Source="F_EQ_10.CNF" Destination="R_1Q.EI" Comment=""/>
+					<Connection Source="R_1Q.EO" Destination="PHASE1Q.R" Comment="" dx1="80.0" dx2="80.0" dy="-413.33333333333337"/>
+					<Connection Source="R_3Q.EO" Destination="PHASE3Q.R" Comment="" dx1="80.0" dx2="80.0" dy="-80.0"/>
+					<Connection Source="F_UINT_TO_INT_7.CNF" Destination="F_EQ_12.REQ" Comment="" dx1="286.6666666666667"/>
+					<Connection Source="F_EQ_12.CNF" Destination="R_3Q.EI" Comment=""/>
+					<Connection Source="R_2Q.EO" Destination="PHASE2Q.R" Comment="" dx1="80.0" dx2="80.0" dy="-213.33333333333334"/>
+					<Connection Source="F_UINT_TO_INT_7.CNF" Destination="F_EQ_13.REQ" Comment="" dx1="286.6666666666667"/>
+					<Connection Source="F_EQ_13.CNF" Destination="R_2Q.EI" Comment=""/>
+					<Connection Source="START.COLD" Destination="SUBSCRIBE_2.INIT" Comment=""/>
+					<Connection Source="START.WARM" Destination="SUBSCRIBE_2.INIT" Comment="" dx1="180.0"/>
+					<Connection Source="E_PERMIT_1.EO" Destination="F_UINT_TO_INT_7.REQ" Comment="" dx1="2873.3333333333335"/>
+				</EventConnections>
+				<DataConnections>
+					<Connection Source="Phase_LEN.CV" Destination="F_GT.IN1" Comment="" dx1="606.6666666666667"/>
+					<Connection Source="Phase_LEN.CV" Destination="F_EQ.IN1" Comment="" dx1="606.6666666666667"/>
+					<Connection Source="F_EQ.OUT" Destination="E_PERMIT_1.PERMIT" Comment="" dx1="300.0"/>
+					<Connection Source="F_GT.OUT" Destination="F_BOOL_TO_INT.IN" Comment=""/>
+					<Connection Source="F_BOOL_TO_INT.OUT" Destination="Yellow_LEN.K" Comment=""/>
+					<Connection Source="F_EQ_1.OUT" Destination="E_PERMIT.PERMIT" Comment=""/>
+					<Connection Source="Yellow_LEN.OUT" Destination="F_BOOL_TO_INT_1.IN" Comment=""/>
+					<Connection Source="F_BOOL_TO_INT_1.OUT" Destination="Result.IN1" Comment="" dx1="420.0"/>
+					<Connection Source="F_MUL.OUT" Destination="F_UINT_TO_INT.IN" Comment=""/>
+					<Connection Source="F_UINT_TO_INT.OUT" Destination="Result.IN2" Comment="" dx1="420.0"/>
+					<Connection Source="Result.OUT" Destination="F_INT_TO_STRING.IN" Comment="" dx1="346.6666666666667"/>
+					<Connection Source="F_INT_TO_STRING.OUT" Destination="PUBLISH_2.SD_1" Comment="" dx1="240.0"/>
+					<Connection Source="SUBSCRIBE_2.RD_1" Destination="F_STRING_TO_BYTE_1.IN" Comment="" dx1="466.6666666666667"/>
+					<Connection Source="F_STRING_TO_BYTE_1.OUT" Destination="F_AND_1.IN1" Comment="" dx1="80.0" dx2="80.0" dy="1600.0"/>
+					<Connection Source="E_CTU_1.CV" Destination="F_LE.IN1" Comment="" dx1="406.6666666666667"/>
+					<Connection Source="F_LE.OUT" Destination="F_AND.IN1" Comment="" dx1="300.0"/>
+					<Connection Source="F_EQ_5.OUT" Destination="F_AND.IN2" Comment="" dx1="300.0"/>
+					<Connection Source="F_GT_1.OUT" Destination="F_AND_2.IN1" Comment="" dx1="1900.0"/>
+					<Connection Source="F_AND_2.OUT" Destination="E_PERMIT_2.PERMIT" Comment=""/>
+					<Connection Source="F_AND.OUT" Destination="F_BYTE_TO_INT_1.IN" Comment=""/>
+					<Connection Source="F_BYTE_TO_INT_1.OUT" Destination="F_INT_TO_BYTE.IN" Comment=""/>
+					<Connection Source="F_INT_TO_BYTE.OUT" Destination="F_AND_2.IN2" Comment="" dx1="153.33333333333334"/>
+					<Connection Source="F_AND_1.OUT" Destination="F_BYTE_TO_UINT.IN" Comment=""/>
+					<Connection Source="F_BYTE_TO_UINT.OUT" Destination="F_GT_1.IN1" Comment=""/>
+					<Connection Source="CUR_G_INDEX.CV" Destination="F_MUL.IN1" Comment="" dx1="520.0"/>
+					<Connection Source="CUR_G_INDEX.CV" Destination="F_EQ_1.IN1" Comment="" dx1="453.33333333333337"/>
+					<Connection Source="CUR_G_INDEX.CV" Destination="F_EQ_5.IN2" Comment="" dx1="80.0" dx2="80.0" dy="1466.6666666666667"/>
+					<Connection Source="F_STRING_TO_BYTE_1.OUT" Destination="F_AND_3.IN1" Comment="" dx1="86.66666666666667"/>
+					<Connection Source="F_AND_3.OUT" Destination="E_PERMIT_3.PERMIT" Comment=""/>
+					<Connection Source="F_STRING_TO_BYTE_1.OUT" Destination="F_AND_4.IN1" Comment="" dx1="86.66666666666667"/>
+					<Connection Source="F_AND_4.OUT" Destination="E_PERMIT_4.PERMIT" Comment=""/>
+					<Connection Source="F_STRING_TO_BYTE_1.OUT" Destination="F_AND_5.IN1" Comment="" dx1="86.66666666666667"/>
+					<Connection Source="F_AND_5.OUT" Destination="E_PERMIT_5.PERMIT" Comment=""/>
+					<Connection Source="PHASE1Q.CV" Destination="F_EQ_2.IN1" Comment="" dx1="273.33333333333337"/>
+					<Connection Source="PHASE2Q.CV" Destination="F_EQ_3.IN1" Comment="" dx1="273.33333333333337"/>
+					<Connection Source="PHASE3Q.CV" Destination="F_EQ_4.IN1" Comment="" dx1="273.33333333333337"/>
+					<Connection Source="F_EQ_2.OUT" Destination="F_BOOL_TO_INT_2.IN" Comment=""/>
+					<Connection Source="F_EQ_3.OUT" Destination="F_BOOL_TO_INT_3.IN" Comment=""/>
+					<Connection Source="F_BOOL_TO_INT_2.OUT" Destination="F_MUX_2.K" Comment="" dx1="620.0"/>
+					<Connection Source="F_BOOL_TO_INT_2.OUT" Destination="F_ADD.IN1" Comment="" dx1="1753.3333333333335"/>
+					<Connection Source="F_MUX_2.OUT" Destination="F_UINT_TO_INT_1.IN" Comment="" dx1="226.66666666666669"/>
+					<Connection Source="F_UINT_TO_INT_1.OUT" Destination="F_ADD.IN2" Comment="" dx1="153.33333333333334"/>
+					<Connection Source="F_BOOL_TO_INT_3.OUT" Destination="F_MUX_3.K" Comment=""/>
+					<Connection Source="F_MUX_3.OUT" Destination="F_UINT_TO_INT_2.IN" Comment=""/>
+					<Connection Source="F_BOOL_TO_INT_3.OUT" Destination="F_ADD_1.IN1" Comment="" dx1="1753.3333333333335"/>
+					<Connection Source="F_UINT_TO_INT_2.OUT" Destination="F_ADD_1.IN2" Comment="" dx1="153.33333333333334"/>
+					<Connection Source="F_ADD_1.OUT" Destination="F_INT_TO_UINT.IN" Comment=""/>
+					<Connection Source="F_INT_TO_UINT.OUT" Destination="F_MUX_2.IN2" Comment="" dx1="80.0" dx2="80.0" dy="-300.0"/>
+					<Connection Source="F_EQ_4.OUT" Destination="F_BOOL_TO_UINT.IN" Comment=""/>
+					<Connection Source="F_BOOL_TO_UINT.OUT" Destination="F_MUX_3.IN2" Comment="" dx1="400.0"/>
+					<Connection Source="CUR_G_INDEX.CV" Destination="F_EQ_6.IN1" Comment="" dx1="2253.3333333333335"/>
+					<Connection Source="CUR_G_INDEX.CV" Destination="F_EQ_7.IN1" Comment="" dx1="2253.3333333333335"/>
+					<Connection Source="CUR_G_INDEX.CV" Destination="F_EQ_8.IN1" Comment="" dx1="2253.3333333333335"/>
+					<Connection Source="F_EQ_6.OUT" Destination="F_BOOL_TO_INT_4.IN" Comment=""/>
+					<Connection Source="F_BOOL_TO_INT_4.OUT" Destination="F_MUX_4.K" Comment=""/>
+					<Connection Source="F_EQ_7.OUT" Destination="F_BOOL_TO_INT_5.IN" Comment=""/>
+					<Connection Source="F_EQ_8.OUT" Destination="F_BOOL_TO_INT_6.IN" Comment=""/>
+					<Connection Source="F_BOOL_TO_INT_5.OUT" Destination="F_MUX_5.K" Comment=""/>
+					<Connection Source="F_INT_TO_UINT.OUT" Destination="F_MUX_5.IN2" Comment="" dx1="1953.3333333333335"/>
+					<Connection Source="F_BOOL_TO_INT_6.OUT" Destination="F_MUX_6.K" Comment=""/>
+					<Connection Source="F_BOOL_TO_UINT.OUT" Destination="F_MUX_6.IN2" Comment="" dx1="4333.333333333334"/>
+					<Connection Source="F_ADD.OUT" Destination="F_INT_TO_UINT_1.IN" Comment=""/>
+					<Connection Source="F_INT_TO_UINT_1.OUT" Destination="F_MUX_4.IN2" Comment="" dx1="1953.3333333333335"/>
+					<Connection Source="F_MUX_4.OUT" Destination="F_UINT_TO_INT_3.IN" Comment=""/>
+					<Connection Source="F_MUX_5.OUT" Destination="F_UINT_TO_INT_4.IN" Comment=""/>
+					<Connection Source="F_MUX_6.OUT" Destination="F_UINT_TO_INT_5.IN" Comment=""/>
+					<Connection Source="F_UINT_TO_INT_3.OUT" Destination="F_ADD_2.IN1" Comment="" dx1="493.33333333333337"/>
+					<Connection Source="F_UINT_TO_INT_4.OUT" Destination="F_ADD_2.IN2" Comment="" dx1="493.33333333333337"/>
+					<Connection Source="F_ADD_2.OUT" Destination="F_INT_TO_UINT_2.IN" Comment=""/>
+					<Connection Source="F_INT_TO_UINT_2.OUT" Destination="F_UINT_TO_INT_6.IN" Comment="" dx1="80.0" dx2="80.0" dy="533.3333333333334"/>
+					<Connection Source="F_UINT_TO_INT_6.OUT" Destination="F_ADD_4.IN1" Comment=""/>
+					<Connection Source="F_UINT_TO_INT_5.OUT" Destination="F_ADD_4.IN2" Comment="" dx1="1153.3333333333335"/>
+					<Connection Source="CUR_G_INDEX.CV" Destination="F_ADD_3.IN2" Comment="" dx1="3320.0"/>
+					<Connection Source="F_ADD_4.OUT" Destination="F_INT_TO_UINT_3.IN" Comment="" dx1="80.0" dx2="80.0" dy="533.3333333333334"/>
+					<Connection Source="F_INT_TO_UINT_3.OUT" Destination="F_ADD_3.IN1" Comment=""/>
+					<Connection Source="F_ADD_3.OUT" Destination="F_INT_TO_UINT_4.IN" Comment=""/>
+					<Connection Source="F_INT_TO_UINT_4.OUT" Destination="F_ADD_5.IN1" Comment=""/>
+					<Connection Source="F_ADD_5.OUT" Destination="CUR_G_INDEX.PV" Comment="" dx1="80.0" dx2="80.0" dy="-2113.3333333333335"/>
+					<Connection Source="CUR_G_INDEX.CV" Destination="F_UINT_TO_INT_7.IN" Comment="" dx1="2253.3333333333335"/>
+					<Connection Source="F_UINT_TO_INT_7.OUT" Destination="F_EQ_10.IN1" Comment=""/>
+					<Connection Source="F_EQ_10.OUT" Destination="R_1Q.PERMIT" Comment=""/>
+					<Connection Source="F_UINT_TO_INT_7.OUT" Destination="F_EQ_12.IN1" Comment="" dx1="286.6666666666667"/>
+					<Connection Source="F_EQ_12.OUT" Destination="R_3Q.PERMIT" Comment=""/>
+					<Connection Source="F_UINT_TO_INT_7.OUT" Destination="F_EQ_13.IN1" Comment="" dx1="286.6666666666667"/>
+					<Connection Source="F_EQ_13.OUT" Destination="R_2Q.PERMIT" Comment=""/>
+				</DataConnections>
+			</FBNetwork>
+		</Resource>
+	</Device>
+	<Mapping From="semaphorApp.Phase_LEN" To="FORTE_PC.EMB_RES.Phase_LEN"/>
+	<Mapping From="semaphorApp.F_GT" To="FORTE_PC.EMB_RES.F_GT"/>
+	<Mapping From="semaphorApp.E_PERMIT_1" To="FORTE_PC.EMB_RES.E_PERMIT_1"/>
+	<Mapping From="semaphorApp.F_EQ" To="FORTE_PC.EMB_RES.F_EQ"/>
+	<Mapping From="semaphorApp.Yellow_LEN" To="FORTE_PC.EMB_RES.Yellow_LEN"/>
+	<Mapping From="semaphorApp.F_BOOL_TO_INT" To="FORTE_PC.EMB_RES.F_BOOL_TO_INT"/>
+	<Mapping From="semaphorApp.F_EQ_1" To="FORTE_PC.EMB_RES.F_EQ_1"/>
+	<Mapping From="semaphorApp.E_PERMIT" To="FORTE_PC.EMB_RES.E_PERMIT"/>
+	<Mapping From="semaphorApp.Result" To="FORTE_PC.EMB_RES.Result"/>
+	<Mapping From="semaphorApp.F_BOOL_TO_INT_1" To="FORTE_PC.EMB_RES.F_BOOL_TO_INT_1"/>
+	<Mapping From="semaphorApp.F_MUL" To="FORTE_PC.EMB_RES.F_MUL"/>
+	<Mapping From="semaphorApp.F_UINT_TO_INT" To="FORTE_PC.EMB_RES.F_UINT_TO_INT"/>
+	<Mapping From="semaphorApp.F_INT_TO_STRING" To="FORTE_PC.EMB_RES.F_INT_TO_STRING"/>
+	<Mapping From="semaphorApp.PUBLISH_2" To="FORTE_PC.EMB_RES.PUBLISH_2"/>
+	<Mapping From="semaphorApp.SUBSCRIBE_2" To="FORTE_PC.EMB_RES.SUBSCRIBE_2"/>
+	<Mapping From="semaphorApp.F_STRING_TO_BYTE_1" To="FORTE_PC.EMB_RES.F_STRING_TO_BYTE_1"/>
+	<Mapping From="semaphorApp.PHASE1Q" To="FORTE_PC.EMB_RES.PHASE1Q"/>
+	<Mapping From="semaphorApp.F_AND_1" To="FORTE_PC.EMB_RES.F_AND_1"/>
+	<Mapping From="semaphorApp.F_GT_1" To="FORTE_PC.EMB_RES.F_GT_1"/>
+	<Mapping From="semaphorApp.E_CTU_1" To="FORTE_PC.EMB_RES.E_CTU_1"/>
+	<Mapping From="semaphorApp.F_LE" To="FORTE_PC.EMB_RES.F_LE"/>
+	<Mapping From="semaphorApp.E_PERMIT_2" To="FORTE_PC.EMB_RES.E_PERMIT_2"/>
+	<Mapping From="semaphorApp.F_EQ_5" To="FORTE_PC.EMB_RES.F_EQ_5"/>
+	<Mapping From="semaphorApp.F_AND" To="FORTE_PC.EMB_RES.F_AND"/>
+	<Mapping From="semaphorApp.F_AND_2" To="FORTE_PC.EMB_RES.F_AND_2"/>
+	<Mapping From="semaphorApp.F_BYTE_TO_INT_1" To="FORTE_PC.EMB_RES.F_BYTE_TO_INT_1"/>
+	<Mapping From="semaphorApp.F_INT_TO_BYTE" To="FORTE_PC.EMB_RES.F_INT_TO_BYTE"/>
+	<Mapping From="semaphorApp.F_BYTE_TO_UINT" To="FORTE_PC.EMB_RES.F_BYTE_TO_UINT"/>
+	<Mapping From="semaphorApp.CUR_G_INDEX" To="FORTE_PC.EMB_RES.CUR_G_INDEX"/>
+	<Mapping From="semaphorApp.E_PERMIT_3" To="FORTE_PC.EMB_RES.E_PERMIT_3"/>
+	<Mapping From="semaphorApp.F_AND_3" To="FORTE_PC.EMB_RES.F_AND_3"/>
+	<Mapping From="semaphorApp.F_AND_4" To="FORTE_PC.EMB_RES.F_AND_4"/>
+	<Mapping From="semaphorApp.PHASE2Q" To="FORTE_PC.EMB_RES.PHASE2Q"/>
+	<Mapping From="semaphorApp.E_PERMIT_4" To="FORTE_PC.EMB_RES.E_PERMIT_4"/>
+	<Mapping From="semaphorApp.F_AND_5" To="FORTE_PC.EMB_RES.F_AND_5"/>
+	<Mapping From="semaphorApp.PHASE3Q" To="FORTE_PC.EMB_RES.PHASE3Q"/>
+	<Mapping From="semaphorApp.E_PERMIT_5" To="FORTE_PC.EMB_RES.E_PERMIT_5"/>
+	<Mapping From="semaphorApp.E_SPLIT_1" To="FORTE_PC.EMB_RES.E_SPLIT_1"/>
+	<Mapping From="semaphorApp.E_SPLIT_2" To="FORTE_PC.EMB_RES.E_SPLIT_2"/>
+	<Mapping From="semaphorApp.F_EQ_2" To="FORTE_PC.EMB_RES.F_EQ_2"/>
+	<Mapping From="semaphorApp.F_EQ_3" To="FORTE_PC.EMB_RES.F_EQ_3"/>
+	<Mapping From="semaphorApp.F_EQ_4" To="FORTE_PC.EMB_RES.F_EQ_4"/>
+	<Mapping From="semaphorApp.F_BOOL_TO_INT_2" To="FORTE_PC.EMB_RES.F_BOOL_TO_INT_2"/>
+	<Mapping From="semaphorApp.F_BOOL_TO_INT_3" To="FORTE_PC.EMB_RES.F_BOOL_TO_INT_3"/>
+	<Mapping From="semaphorApp.F_MUX_2" To="FORTE_PC.EMB_RES.F_MUX_2"/>
+	<Mapping From="semaphorApp.F_ADD" To="FORTE_PC.EMB_RES.F_ADD"/>
+	<Mapping From="semaphorApp.F_UINT_TO_INT_1" To="FORTE_PC.EMB_RES.F_UINT_TO_INT_1"/>
+	<Mapping From="semaphorApp.F_MUX_3" To="FORTE_PC.EMB_RES.F_MUX_3"/>
+	<Mapping From="semaphorApp.F_UINT_TO_INT_2" To="FORTE_PC.EMB_RES.F_UINT_TO_INT_2"/>
+	<Mapping From="semaphorApp.F_ADD_1" To="FORTE_PC.EMB_RES.F_ADD_1"/>
+	<Mapping From="semaphorApp.F_INT_TO_UINT" To="FORTE_PC.EMB_RES.F_INT_TO_UINT"/>
+	<Mapping From="semaphorApp.F_BOOL_TO_UINT" To="FORTE_PC.EMB_RES.F_BOOL_TO_UINT"/>
+	<Mapping From="semaphorApp.F_EQ_6" To="FORTE_PC.EMB_RES.F_EQ_6"/>
+	<Mapping From="semaphorApp.F_EQ_7" To="FORTE_PC.EMB_RES.F_EQ_7"/>
+	<Mapping From="semaphorApp.F_EQ_8" To="FORTE_PC.EMB_RES.F_EQ_8"/>
+	<Mapping From="semaphorApp.E_SPLIT_3" To="FORTE_PC.EMB_RES.E_SPLIT_3"/>
+	<Mapping From="semaphorApp.F_MUX_4" To="FORTE_PC.EMB_RES.F_MUX_4"/>
+	<Mapping From="semaphorApp.F_BOOL_TO_INT_4" To="FORTE_PC.EMB_RES.F_BOOL_TO_INT_4"/>
+	<Mapping From="semaphorApp.F_BOOL_TO_INT_5" To="FORTE_PC.EMB_RES.F_BOOL_TO_INT_5"/>
+	<Mapping From="semaphorApp.F_BOOL_TO_INT_6" To="FORTE_PC.EMB_RES.F_BOOL_TO_INT_6"/>
+	<Mapping From="semaphorApp.F_MUX_5" To="FORTE_PC.EMB_RES.F_MUX_5"/>
+	<Mapping From="semaphorApp.F_MUX_6" To="FORTE_PC.EMB_RES.F_MUX_6"/>
+	<Mapping From="semaphorApp.F_INT_TO_UINT_1" To="FORTE_PC.EMB_RES.F_INT_TO_UINT_1"/>
+	<Mapping From="semaphorApp.F_UINT_TO_INT_3" To="FORTE_PC.EMB_RES.F_UINT_TO_INT_3"/>
+	<Mapping From="semaphorApp.F_UINT_TO_INT_4" To="FORTE_PC.EMB_RES.F_UINT_TO_INT_4"/>
+	<Mapping From="semaphorApp.F_UINT_TO_INT_5" To="FORTE_PC.EMB_RES.F_UINT_TO_INT_5"/>
+	<Mapping From="semaphorApp.F_ADD_2" To="FORTE_PC.EMB_RES.F_ADD_2"/>
+	<Mapping From="semaphorApp.F_INT_TO_UINT_2" To="FORTE_PC.EMB_RES.F_INT_TO_UINT_2"/>
+	<Mapping From="semaphorApp.F_UINT_TO_INT_6" To="FORTE_PC.EMB_RES.F_UINT_TO_INT_6"/>
+	<Mapping From="semaphorApp.F_ADD_4" To="FORTE_PC.EMB_RES.F_ADD_4"/>
+	<Mapping From="semaphorApp.F_ADD_3" To="FORTE_PC.EMB_RES.F_ADD_3"/>
+	<Mapping From="semaphorApp.F_INT_TO_UINT_3" To="FORTE_PC.EMB_RES.F_INT_TO_UINT_3"/>
+	<Mapping From="semaphorApp.F_INT_TO_UINT_4" To="FORTE_PC.EMB_RES.F_INT_TO_UINT_4"/>
+	<Mapping From="semaphorApp.F_ADD_5" To="FORTE_PC.EMB_RES.F_ADD_5"/>
+	<Mapping From="semaphorApp.F_EQ_9" To="FORTE_PC.EMB_RES.F_EQ_9"/>
+	<Mapping From="semaphorApp.F_UINT_TO_INT_7" To="FORTE_PC.EMB_RES.F_UINT_TO_INT_7"/>
+	<Mapping From="semaphorApp.F_EQ_10" To="FORTE_PC.EMB_RES.F_EQ_10"/>
+	<Mapping From="semaphorApp.R_1Q" To="FORTE_PC.EMB_RES.R_1Q"/>
+	<Mapping From="semaphorApp.R_3Q" To="FORTE_PC.EMB_RES.R_3Q"/>
+	<Mapping From="semaphorApp.F_EQ_12" To="FORTE_PC.EMB_RES.F_EQ_12"/>
+	<Mapping From="semaphorApp.R_2Q" To="FORTE_PC.EMB_RES.R_2Q"/>
+	<Mapping From="semaphorApp.F_EQ_13" To="FORTE_PC.EMB_RES.F_EQ_13"/>
+	<Segment Name="Ethernet" Type="Ethernet" Comment="" x="4726.666666666667" y="1366.6666666666667" dx1="2000.0">
+		<Attribute Name="Color" Type="STRING" Value="138,75,196" Comment="color"/>
+	</Segment>
+	<Link SegmentName="Ethernet" CommResource="FORTE_PC" Comment="">
+	</Link>
+</System>

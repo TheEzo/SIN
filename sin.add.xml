@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 11/24/20 20:05:14 by Eclipse SUMO netedit Version 1.7.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <sumo-net-file value="D:\sumo\sin\sin.net.xml"/>
+    </input>
+
+    <output>
+        <output-file value="D:\sumo\sin\sin.net.xml"/>
+    </output>
+
+    <processing>
+        <geometry.min-radius.fix.railways value="false"/>
+        <geometry.max-grade.fix value="false"/>
+        <offset.disable-normalization value="true"/>
+        <lefthand value="false"/>
+    </processing>
+
+    <junctions>
+        <no-internal-links value="false"/>
+        <no-turnarounds value="true"/>
+        <junctions.corner-detail value="5"/>
+        <junctions.limit-turn-speed value="5.5"/>
+        <rectangular-lane-cut value="false"/>
+    </junctions>
+
+    <pedestrian>
+        <walkingareas value="true"/>
+    </pedestrian>
+
+    <netedit>
+        <additional-files value="D:\sumo\sin\sin.add.xml"/>
+        <route-files value="D:\sumo\sin\routes.rou.xml"/>
+    </netedit>
+
+    <report>
+        <aggregate-warnings value="5"/>
+    </report>
+
+</configuration>
+-->
+
+<additional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/additional_file.xsd">
+    <e1Detector id="01" lane="-11.149.92_1" pos="1.20" freq="900.00" file="NUL"/>
+    <e1Detector id="02" lane="-9.191.77_1" pos="1.60" freq="900.00" file="NUL"/>
+    <e1Detector id="11" lane="-3.213.65_1" pos="1.35" freq="900.00" file="NUL"/>
+    <e1Detector id="12" lane="-7.191.49_1" pos="1.37" freq="900.00" file="NUL"/>
+    <e1Detector id="21" lane="-7.191.49_2" pos="1.37" freq="900.00" file="NUL"/>
+    <e1Detector id="22" lane="-3.213.65_2" pos="1.38" freq="900.00" file="NUL"/>
+    <e1Detector id="31" lane="-11.149.92_2" pos="1.19" freq="900.00" file="NUL"/>
+    <e1Detector id="32" lane="-9.191.77_2" pos="1.61" freq="900.00" file="NUL"/>
+</additional>
